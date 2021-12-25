@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<script>
+
+function printimage(src){
+    var W = window.open(src);
+
+    W.window.print();
+}
+
+</script>
+</br>
+</br>
+<center>
+<img id="img4" src="../../../dms/media/images/{{ img_url}}" alt="{{ img_url }}"></br>
+<a href="#" onclick="printimage('../../../dms/media/images/{{ img_url}}'); return false;"><button id="printImage">طباعة</button></a>
+<a href="{% url 'index' %}"><button id="home">الرئيسية</button></a>
+    </center>
+
+
+{% endblock %}

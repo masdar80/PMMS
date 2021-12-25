@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<h2><p style="color:#a1c8bd;">
+          {{title}}
+        </p></h2>
+<div style="background: #a1c8bd;">
+    <form method = "post" enctype="multipart/form-data">
+        <fieldset class="form-group">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group col-md-6 mb-0">
+        {{ form.mail_type|as_crispy_field }}
+      </div>
+                </td>
+                 <td>
+                    <div class="form-group col-md-6 mb-0">
+        {{ form.mail_title|as_crispy_field }}
+      </div>
+                </td>
+                 </tr>
+            <tr>
+                <td>
+                 <div class="form-group col-md-6 mb-0">
+        {{ form.mail_number|as_crispy_field }}
+      </div>
+                </td>
+                <td>
+                    {{ form.mail_date|as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                 <div class="form-group col-md-6 mb-0">
+        {{ form.mail_from|as_crispy_field }}
+      </div>
+                </td>
+                <td>
+                    <div class="form-group col-md-6 mb-0">
+                   {{ form.mail_to|as_crispy_field }}
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div class="form-group col-md-6 mb-0">
+                    {{ form.mail_text|as_crispy_field }}
+                        </div>
+                </td>
+            </tr>
+ <tr>
+                <td>
+                    <div class="form-group col-md-6 mb-0">
+                   {{ form.mail_rec_date|as_crispy_field }}
+                        </div>
+                </td>
+
+
+                <td >
+                    <div class="form-group col-md-6 mb-0">
+                    {{ form.mail_scan}}
+                        </div>
+                </td>
+
+             </tr>
+
+
+        </table>
+ </fieldset>
+<div class="form-group">
+                    <button type="submit" class="btn btn-primary">{{btntitle}}</button>
+</div>
+  </form>
+</div>
+{% endblock %}
